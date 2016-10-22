@@ -1,3 +1,5 @@
+<h1></h1>
+
 Title: <%= @job.title %>
 <br>
 
@@ -15,3 +17,12 @@ Category: <%= link_to @job.category.title, category_path(@job.category) %>
 
 <%= link_to "Edit", edit_company_job_path(@job.company, @job) %>
 <%= link_to "Delete", company_job_path(@job.company, @job), method: :delete, data: {confirm: "Are you sure you want to delete #{@job.title}"} %>
+
+<h3>Comments</h3>
+<%= form_for @comment do |f| %>
+  <%= f.label :content, "Comment" %>
+  <%= f.text_field :content %>
+  <%= hidden_field_tag :job_id, @job.id %>
+
+  <%= f.submit %>
+<% end %>
