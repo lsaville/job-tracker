@@ -7,9 +7,8 @@ describe "User can edit existing category" do
     visit category_path(category)
     click_on "Edit"
     expect(current_path).to eq(edit_category_path(category))
-
     fill_in "category_title", with: "Roasting"
-    click_button "Update"
+    click_button "Update Category"
 
     expect(current_path).to eq(category_path(category))
     expect(page).to have_content "Roasting"
