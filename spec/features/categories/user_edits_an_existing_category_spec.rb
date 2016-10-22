@@ -11,6 +11,9 @@ describe "User can edit existing category" do
     click_button "Update Category"
 
     expect(current_path).to eq(category_path(category))
+    within(".success") do
+      expect(page).to have_content "Roasting updated!"
+    end
     expect(page).to have_content "Roasting"
   end
 end
