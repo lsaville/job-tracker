@@ -17,4 +17,11 @@ describe Comment do
     end
   end
 
+  describe "relationships" do
+    it "belongs to job" do
+      comment = Comment.new(content: "Some bland content")
+      expect(comment).to respond_to(:job)
+    end
+  end
+
 end
