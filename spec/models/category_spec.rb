@@ -21,6 +21,12 @@ describe Category do
         expect(category).to be_valid
       end
     end
+  end
 
+  describe "relationships" do
+    it "has many jobs" do
+      category = Category.new(title: "Awesome")
+      expect(category).to respond_to(:jobs)
+    end
   end
 end
