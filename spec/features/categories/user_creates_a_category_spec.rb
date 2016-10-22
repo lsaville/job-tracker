@@ -18,7 +18,6 @@ describe "User creates a new category" do
     category = Category.create(title: "Ruby")
 
     visit categories_path
-save_and_open_page
     expect(page).to have_content "Dev Ops"
     expect(page).to have_content "Ruby"
   end
