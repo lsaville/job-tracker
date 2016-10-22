@@ -12,4 +12,14 @@ describe "User creates a new category" do
 
     expect(page).to have_content "Dev Ops"
   end
+
+  scenario "a user can see categories page" do
+    category = Category.create(title: "Dev Ops")
+    category = Category.create(title: "Ruby")
+
+    visit categories_path
+save_and_open_page
+    expect(page).to have_content "Dev Ops"
+    expect(page).to have_content "Ruby"
+  end
 end
