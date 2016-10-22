@@ -4,5 +4,5 @@ Rails.application.routes.draw do
     resources :jobs
   end
 
-  resources :categories 
+  resources :categories, except: [:delete]
 end

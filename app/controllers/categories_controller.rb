@@ -14,6 +14,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
+      flash[:success] = "#{@category.title} created!"
       redirect_to category_path(@category)
     else
       render :new
@@ -33,9 +34,6 @@ class CategoriesController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def delete
   end
 
   private
