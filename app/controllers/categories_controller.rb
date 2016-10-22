@@ -21,6 +21,7 @@ class CategoriesController < ApplicationController
   end
 
   def edit
+    @category = Category.new
   end
 
   def update
