@@ -12,7 +12,6 @@ describe "User edits an existing job" do
     expect(page).to have_current_path(company_job_path(company, job))
     click_link "Edit"
     expect(page).to have_current_path(edit_company_job_path(company, job))
-    save_and_open_page
     fill_in "job_title", with: "Awesome Job Title"
     click_button "Update Job"
 
