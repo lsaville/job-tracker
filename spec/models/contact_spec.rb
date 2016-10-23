@@ -38,5 +38,4 @@ describe Contact do
       expect(contact).to respond_to(:company)
     end
   end
-
 end
