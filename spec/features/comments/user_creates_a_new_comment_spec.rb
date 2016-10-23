@@ -8,11 +8,11 @@ describe "user creates a comment" do
     job = jobs.first
 
     visit company_job_path(company, job)
-    fill_in "comment", with: "Had drinks with the ceo, we share a passion for goldfish, seems promising"
+    fill_in "comment_content", with: "Had drinks with the ceo, we share a passion for goldfish, seems promising"
     click_button "Create Comment"
 
     expect(current_path).to eq(company_job_path(company, job))
-    within("div") do
+    within("p") do
       expect(page).to have_content "Had drinks"
     end
   end

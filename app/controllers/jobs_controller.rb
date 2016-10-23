@@ -25,6 +25,7 @@ class JobsController < ApplicationController
   def show
     @comment = Comment.new
     @job = Job.find(params[:id])
+    @comments = Comment.all.reverse
   end
 
   def edit
