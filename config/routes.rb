@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   end
 
   resources :categories, except: [:delete]
+  resources :comments, only: [:create]
 end
