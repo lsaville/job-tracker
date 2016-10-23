@@ -1,13 +1,13 @@
 All Jobs for <strong><%= @company.name %></strong>
 
-<% @jobs.each do |job| %>
+<% @company.jobs.each do |job| %>
   <ul><%= link_to job.title, company_job_path(@company, job) %> at <%= job.company.name %></ul>
 <% end %>
 
 <%= link_to "Create Job", new_company_job_path %>
 <br>
 <br>
-<% unless @contacts.empty? %>
+<% unless @company.contacts.empty? %>
   <h3>Contacts</h3>
   <table>
     <tr>
@@ -16,7 +16,7 @@ All Jobs for <strong><%= @company.name %></strong>
       <th>Position</th>
       <th>Email</th>
     </tr>
-    <tr><%= render partial: "contact", collection: @contacts %></tr>
+    <tr><%= render partial: "contact", collection: @company.contacts %></tr>
   </table>
   <br>
 <% end %>
