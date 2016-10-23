@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :categories, except: [:delete]
   resources :comments, only: [:create]
   resources :contacts, only: [:create]
+  resources :dashboard, only: [:index]
 end
