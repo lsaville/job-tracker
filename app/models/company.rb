@@ -7,4 +7,11 @@ class Company < ActiveRecord::Base
   def self.ordered
     order(:city)
   end
+
+  def self.top_three
+    crazy = Company.all.group_by do |company|
+      company.jobs.average(:level_of_interest).round
+    end
+    crazy.sort[-3..-1].reverse
+  end
 end
