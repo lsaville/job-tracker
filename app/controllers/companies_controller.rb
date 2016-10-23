@@ -1,6 +1,10 @@
 class CompaniesController < ApplicationController
   def index
     @companies = Company.all
+    @ordered = @companies.ordered
+    if params[:sort]
+      render :location
+    end
   end
 
   def new
