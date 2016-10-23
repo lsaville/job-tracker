@@ -1,0 +1,12 @@
+<h1>Location!!!</h1>
+
+<% @ordered.each do |company|%>
+  <ol>
+    <li><%= link_to company.name, company_path(company) %><%= " in #{company.city}" %></li>
+    <% company.jobs.each do |job| %>
+      <ul>
+        <li><%= link_to job.title, company_job_path(company, job) %></li>
+      </ul>
+    <% end %>
+  </ol>
+<% end %>
