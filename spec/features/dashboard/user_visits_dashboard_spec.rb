@@ -34,6 +34,7 @@ describe "user visits the dashboard" do
     jobs = company.jobs << Job.create(title: "schmuck", description: "haciendose la vaca", level_of_interest: 2000, category: category )
 
     visit dashboard_index_path
+    
     within(".count_location") do
       expect(page).to have_content "LA has 1 jobs"
     end
