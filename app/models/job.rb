@@ -7,4 +7,8 @@ class Job < ActiveRecord::Base
   def self.ordered_level_of_interest
     group(:level_of_interest).order(level_of_interest: :desc).count
   end
+
+  def self.interest
+    order(:level_of_interest).reverse
+  end
 end
