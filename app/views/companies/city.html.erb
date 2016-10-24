@@ -1,0 +1,9 @@
+<h1><%= params[:location] %></h1>
+<% @company.joins(:jobs).uniq.each do |company| %>
+  <h3><%= company.name %></h3>
+  <ul>
+    <% company.jobs.each do |job| %>
+      <li><%= link_to job.title, company_job_path(company, job) %></li>
+    <% end %>
+  </ul>
+<% end %>

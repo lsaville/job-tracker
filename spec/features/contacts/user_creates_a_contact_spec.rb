@@ -10,7 +10,7 @@ describe "user creates a contact from job#show" do
     fill_in "contact_position", with: "Senior iOs engineer"
     fill_in "contact_email", with: "fulano@gmail.com"
     click_button "Create Contact"
-save_and_open_page
+
     expect(page).to have_content "fulano"
   end
 
