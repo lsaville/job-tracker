@@ -23,8 +23,9 @@ describe "user visits the dashboard" do
     company3.jobs << Job.create(title: "minion", description: "haciendose la vaca", level_of_interest: 1000, category: category )
 
     visit dashboard_index_path
-
-    expect(page).to have_content "1500"
+    within(".top_three") do
+      expect(page).to have_content "ESPN has an average job interest of 2000"
+    end
   end
 
   scenario "they see a count of jobs by location" do
@@ -32,5 +33,9 @@ describe "user visits the dashboard" do
     category = Category.create(title: "Blah")
     jobs = company.jobs << Job.create(title: "schmuck", description: "haciendose la vaca", level_of_interest: 2000, category: category )
 
+    visit dashboard_index_path
+    within(".count_location") do
+      expect(page).to have_content "LA has 1 jobs"
+    end
   end
 end
