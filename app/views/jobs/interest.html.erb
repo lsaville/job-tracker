@@ -1,0 +1,6 @@
+<h1>JOBS BY INTEREST!!!</h1>
+<ol>
+  <% @jobs.interest.each do |job| %>
+    <li><%= link_to job.title, company_job_path(job, job.company) %> at <%= job.company.name %>: <%= job.level_of_interest %></li>
+  <% end %>
+</ol>
