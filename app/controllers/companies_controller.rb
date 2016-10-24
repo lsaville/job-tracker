@@ -3,7 +3,10 @@ class CompaniesController < ApplicationController
     @companies = Company.all
     @ordered = @companies.ordered
     if params[:sort]
-      render :location
+      render :job_city_sort
+    elsif params[:location]
+      @company = Company.where(city: params[:location])
+      render :city
     end
   end
 
