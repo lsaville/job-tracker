@@ -31,3 +31,6 @@
     <p><%= link_to city, "/companies?location=#{city}"%> has <%= Company.where(city: city).joins(:jobs).count %> jobs</p>
   <% end %>
 </div>
+<br>
+<br>
+<%= link_to "City Sort", "/companies?sort=location" %>
