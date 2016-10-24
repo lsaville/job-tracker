@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :comments, only: [:create]
   resources :contacts, only: [:create]
   resources :dashboard, only: [:index]
+  resources :jobs, only: [:index]
 end
