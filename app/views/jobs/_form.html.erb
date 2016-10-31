@@ -1,4 +1,6 @@
 <%= form_for [@company, @job] do |f| %>
+  <%= render partial: "shared/errors", locals: { target: @company } %>
+
   <%= f.label :title %>
   <%= f.text_field :title %>
 

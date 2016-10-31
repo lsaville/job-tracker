@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
   def create
-    @contact = Contact.new(contact_params)
-    @contact.company_id = params[:company_id]
+    company = Company.find(params[:company_id])
+    @contact = company.contacts.new(contact_params)
     @contact.save
     redirect_to company_jobs_path(@contact.company)
   end
