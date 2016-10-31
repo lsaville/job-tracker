@@ -1,0 +1,37 @@
+<h1>Dashboard!!!</h1>
+
+<div class="level_of_interest">
+  <h2>Job Count by Level of Interest</h2>
+  <table>
+    <tr>
+      <th>Level of Interest</th>
+      <th># of Jobs</th>
+    </tr>
+    <% @jobs.ordered_level_of_interest.each do |interest, count| %>
+      <tr>
+        <td><%= interest %></td>
+        <td><%= count %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<div class="top_three">
+  <h2>Top Three Companies by Average Interest</h2>
+  <ol>
+    <% @top_three.each do |avg, company| %>
+      <li><%= "#{company[0].name} has an average job interest of #{avg}"%></li>
+    <% end %>
+  </ol>
+</div>
+
+<div class="count_location">
+<h2>Job Count by Location</h2>
+  <% @cities.each do |city| %>
+    <p><%= link_to city, "/companies?location=#{city}"%> has <%= Company.where(city: city).joins(:jobs).count %> jobs</p>
+  <% end %>
+</div>
+<br>
+<br>
+<%= link_to "City Sort", "/companies?sort=location" %>
+<%= link_to "Jobs by Interest", "/jobs?sort=interest" %>

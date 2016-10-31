@@ -1,3 +1,5 @@
+<h1>Job at <%= @job.company.name %></h1>
+
 Title: <%= @job.title %>
 <br>
 
@@ -8,3 +10,21 @@ Level of Interest: <%= @job.level_of_interest %>
 <br>
 
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
+<br>
+
+Category: <%= link_to @job.category.title, category_path(@job.category) %>
+<br>
+
+<%= link_to "Edit", edit_company_job_path(@job.company, @job) %>
+<%= link_to "Delete", company_job_path(@job.company, @job), method: :delete, data: {confirm: "Are you sure you want to delete #{@job.title}"} %>
+
+<h3>Comments</h3>
+
+<%= render partial: "comment", collection: @comments %>
+<%= form_for @comment do |f| %>
+  <%= f.label :content, "Comment" %>
+  <%= f.text_field :content %>
+  <%= hidden_field_tag :job_id, @job.id %>
+
+  <%= f.submit %>
+<% end %>
